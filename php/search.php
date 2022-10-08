@@ -5,11 +5,11 @@ include './api-config.php';
 
 $search = ('search/movie?');
 $query = ('&query=');
-$rawinput = ('the avengers');
+$rawinput = (' ');
 
-# if ($_SERVER["REQUEST_METHOD"] == "POST"){
-#    $rawinput = $_POST["search"];
-# }
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+   $rawinput = $_POST["search"];
+}
 
 $input = str_replace(' ', '+', $rawinput);
 
@@ -25,7 +25,7 @@ $count = count($data -> results);
 			echo "Description: ". $data -> results[$x] -> overview. "<br>";
 			echo "Release Date: ". $data -> results[$x] -> release_date. "<br>";
 			echo "Language: ". $data -> results[$x] -> original_language. "<br>"; 
-            echo "Vote Rating: ". ((($data -> results[$x] -> vote_average)*10)). "<br>"; 
+           		echo "Vote Rating: ". ((($data -> results[$x] -> vote_average)*10)). "<br>"; 
 			echo "<br>";
 		}
 ?>
