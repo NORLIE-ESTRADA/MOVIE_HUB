@@ -1,6 +1,6 @@
 <?php
-include './api-config.php';
-
+include 'api-config.php';
+include 'image.php';
 
 
 $search = ('search/movie?');
@@ -18,14 +18,14 @@ $json = file_get_contents($url);
 
 $data = json_decode($json);
 $count = count($data -> results);
-
+echo "<h3>Found ". $count." results!". "</h3><br><br>";
 		for ($x = 0; $x < $count; $x++){
-			echo "Title: ". $data -> results[$x] -> title. "<br>"; 
-			echo "Image: ". $data -> results[$x] -> poster_path. "<br>";
+			echo "ID: ". $data -> results[$x] -> id. "<br>"; 
+			$title = $data -> results[$x] -> title;
+			echo "Title: ".$title. "<br>"; 
+			$img = $imgurl.$data -> results[$x] -> poster_path;
+			echo '<img alt="'.$title.'" src="' . $img . '">'. "<br>";
 			echo "Description: ". $data -> results[$x] -> overview. "<br>";
-			echo "Release Date: ". $data -> results[$x] -> release_date. "<br>";
-			echo "Language: ". $data -> results[$x] -> original_language. "<br>"; 
-           		echo "Vote Rating: ". ((($data -> results[$x] -> vote_average)*10)). "<br>"; 
 			echo "<br>";
 		}
 ?>

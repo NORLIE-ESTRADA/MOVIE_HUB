@@ -144,7 +144,7 @@ hr{
     border-color: #61192071;
    
 }
-#show-case .container .show-case-content .search-group button[type='button']{
+#show-case .container .show-case-content .search-group button[type='submit']{
     padding: 1rem;
     width: 10%;
     border: none;
