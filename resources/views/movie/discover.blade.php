@@ -1,6 +1,7 @@
 <?php
-include 'api-config.php';
-include 'image.php';
+$domain = 'https://api.themoviedb.org/3/';
+$api = 'api_key=ca97e80fa7f832d4b3cfb76bb842710f';
+$imgurl = ('https://image.tmdb.org/t/p/w200');
 
 $discover = ('discover/movie?');
 

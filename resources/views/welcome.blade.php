@@ -67,6 +67,7 @@
             <h2>MO<span>VIE</span></h2>
             <hr>
             <div class="category-wrapper">
+                @include ('movie.discover')
             </div>
             <a href="#">View More</a>
         </div>
