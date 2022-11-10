@@ -47,7 +47,7 @@
             <div class="show-case-content">
                 <h1 class="title">MOVIE<span class="primary-color">HUB</span></h1>
                 <p class="description">Watch your favorite movies online</p>
-                <form class="search-group" action="./php/search.php" method="post">
+                <form class="search-group" action="{{ route('search') }}" method="GET">
                     <input type="text" id="search" name="search" placeholder="SEARCH" required>
                     <button type="submit" value=""><i class="fa-solid fa-magnifying-glass fa-2x" ></i></button>
                 </form>
