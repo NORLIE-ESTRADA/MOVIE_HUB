@@ -14,8 +14,8 @@ class CreateWatchlistsTable extends Migration
     public function up()
     {
         Schema::create('watchlists', function (Blueprint $table) {
-            $table->id();
-            $table->string('uid');
+            $table->id('watchlistID');
+            $table->string('userID');
             $table->string('movieid');
             $table->timestamps();
         });
