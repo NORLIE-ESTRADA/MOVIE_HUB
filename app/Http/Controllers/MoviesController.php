@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
-class WatchlistController extends Controller
+class MoviesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,13 @@ class WatchlistController extends Controller
      */
     public function index()
     {
-        //
+        $popularMovies = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/popular')
+            ->json()['results'];
+
+        return view('index',[
+            'popularMovies' => $popularMovies,
+        ]);
     }
 
     /**
