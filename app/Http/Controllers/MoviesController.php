@@ -14,11 +14,15 @@ class MoviesController extends Controller
      */
     public function index()
     {
+        $discoverMovies = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/upcoming')
+            ->json()['results'];
         $popularMovies = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/popular')
             ->json()['results'];
 
         return view('index',[
+            'discoverMovies' => $discoverMovies,
             'popularMovies' => $popularMovies,
         ]);
     }
@@ -28,9 +32,9 @@ class MoviesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function show()
     {
-        //
+        return view('layouts.show');
     }
 
     /**
@@ -50,10 +54,6 @@ class MoviesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

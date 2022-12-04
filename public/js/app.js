@@ -5325,8 +5325,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
@@ -28275,21 +28273,11 @@ var staticRenderFns = [
       _c("div", { staticClass: "card bg-dark text-white" }, [
         _c("img", {
           staticClass: "card-img",
-          attrs: { src: "/img/wallpaper.jpg", alt: "Card image" },
+          attrs: { src: "/img/wallpaper.jpg", alt: "image" },
         }),
         _vm._v(" "),
         _c("div", { staticClass: "card-img-overlay" }, [
-          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
-            ),
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v("Last updated 3 mins ago"),
-          ]),
+          _c("img", { attrs: { src: "/img/Capture.png", width: "50%" } }),
         ]),
       ]),
     ])
@@ -28326,13 +28314,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "nav",
-      { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark" },
+      { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark px-4 py-3" },
       [
         _c("div", { staticClass: "container-fluid" }, [
-          _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-            _vm._v("MOVIE"),
-            _c("span", { staticClass: "text-danger" }, [_vm._v("HUB")]),
-          ]),
+          _c(
+            "a",
+            { staticClass: "navbar-brand fw-bold", attrs: { href: "#" } },
+            [
+              _vm._v("MOVIE"),
+              _c("span", { staticClass: "text-danger" }, [_vm._v("HUB")]),
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
