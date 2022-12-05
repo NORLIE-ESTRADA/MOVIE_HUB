@@ -28319,7 +28319,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "container-fluid" }, [
           _c(
             "a",
-            { staticClass: "navbar-brand fw-bold", attrs: { href: "#" } },
+            { staticClass: "navbar-brand fw-bold", attrs: { href: "/" } },
             [
               _vm._v("MOVIE"),
               _c("span", { staticClass: "text-danger" }, [_vm._v("HUB")]),
@@ -28339,7 +28339,7 @@ var staticRenderFns = [
                     "a",
                     {
                       staticClass: "nav-link active",
-                      attrs: { "aria-current": "page", href: "#" },
+                      attrs: { "aria-current": "page", href: "/" },
                     },
                     [_vm._v("Home")]
                   ),
