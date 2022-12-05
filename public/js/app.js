@@ -5325,6 +5325,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
@@ -5364,10 +5366,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
-    console.log('Navigation Bar mounted.');
+    console.log('Component mounted.');
   }
 });
 
@@ -28269,18 +28273,61 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header bg-secondary" }, [
-      _c("div", { staticClass: "card bg-dark text-white" }, [
-        _c("img", {
-          staticClass: "card-img",
-          attrs: { src: "/img/wallpaper.jpg", alt: "image" },
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-img-overlay" }, [
-          _c("img", { attrs: { src: "/img/Capture.png", width: "50%" } }),
-        ]),
-      ]),
-    ])
+    return _c(
+      "div",
+      {
+        staticClass: "bg-image",
+        staticStyle: {
+          "background-image": "url('/img/wallpaper.jpg')",
+          border: "0",
+          height: "100%",
+          "background-size": "cover",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "py-5",
+            staticStyle: { "background-color": "rgba(251, 192, 147, 0.4)" },
+          },
+          [
+            _c("img", {
+              staticClass: "position-sticky top-50 start-50 translate-middle",
+              attrs: { width: "40%", src: "/img/Capture.PNG" },
+            }),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                staticClass: "justify-content-center d-flex h-25 py-2",
+                attrs: {
+                  action: "/search=",
+                  method: "get",
+                  onsubmit:
+                    "this.action += this.querySelector('#query').value;",
+                },
+              },
+              [
+                _c("input", {
+                  staticClass: "form-control me-2 w-50",
+                  attrs: {
+                    type: "search",
+                    placeholder: "Search",
+                    "aria-label": "Search",
+                    id: "query",
+                  },
+                }),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-danger" }, [
+                  _c("i", { staticClass: "bi bi-search" }),
+                ]),
+              ]
+            ),
+          ]
+        ),
+      ]
+    )
   },
 ]
 render._withStripped = true
@@ -28319,7 +28366,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "container-fluid" }, [
           _c(
             "a",
-            { staticClass: "navbar-brand fw-bold", attrs: { href: "#" } },
+            { staticClass: "navbar-brand fw-bold", attrs: { href: "/" } },
             [
               _vm._v("MOVIE"),
               _c("span", { staticClass: "text-danger" }, [_vm._v("HUB")]),
@@ -28339,7 +28386,7 @@ var staticRenderFns = [
                     "a",
                     {
                       staticClass: "nav-link active",
-                      attrs: { "aria-current": "page", href: "#" },
+                      attrs: { "aria-current": "page", href: "/" },
                     },
                     [_vm._v("Home")]
                   ),
@@ -28358,25 +28405,33 @@ var staticRenderFns = [
                 ]),
               ]),
               _vm._v(" "),
-              _c("form", { staticClass: "d-flex" }, [
-                _c("input", {
-                  staticClass: "form-control me-2",
+              _c(
+                "form",
+                {
+                  staticClass: "d-flex",
                   attrs: {
-                    type: "search",
-                    placeholder: "Search",
-                    "aria-label": "Search",
+                    action: "/search=",
+                    method: "get",
+                    onsubmit:
+                      "this.action += this.querySelector('#query').value;",
                   },
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-success",
-                    attrs: { type: "submit" },
-                  },
-                  [_vm._v("Search")]
-                ),
-              ]),
+                },
+                [
+                  _c("input", {
+                    staticClass: "form-control me-2",
+                    attrs: {
+                      type: "search",
+                      placeholder: "Search",
+                      "aria-label": "Search",
+                      id: "query",
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("button", { staticClass: "btn btn-danger" }, [
+                    _c("i", { staticClass: "bi bi-search" }),
+                  ]),
+                ]
+              ),
             ]
           ),
         ]),

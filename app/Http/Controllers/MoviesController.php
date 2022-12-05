@@ -32,9 +32,15 @@ class MoviesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        return view('layouts.show');
+        $movie = Http::withToken(config('services.tmdb.token'))
+        ->get('https://api.themoviedb.org/3/movie/'.$id.'?append_to_response=credits,videos,images')
+        ->json();
+
+        return view('layouts.show',[
+            'movie' => $movie,
+        ]);
     }
 
     /**
@@ -43,9 +49,16 @@ class MoviesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function search($query)
     {
-        //
+        $results = Http::withToken(config('services.tmdb.token'))
+        ->get('https://api.themoviedb.org/3/search/movie?query='.$query)
+        ->json()['results'];
+
+
+        return view('layouts.search',[
+            'results' => $results,
+        ]);
     }
 
     /**
