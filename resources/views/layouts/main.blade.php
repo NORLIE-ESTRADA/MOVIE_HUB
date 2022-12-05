@@ -6,9 +6,9 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ mix('/js/app.js') }}"></script>
+    <link rel="icon" type="image/x-icon" href="{{asset('favicon.ico')}}">
 </head>
 <body>
-    
     @yield('content')
 </body>
 </html>

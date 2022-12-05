@@ -1,14 +1,14 @@
 <template>
-    <div class="header bg-secondary" >
-        <div class="card bg-dark text-white">
-        <img class="card-img" src="/img/wallpaper.jpg" alt="Card image">
-        <div class="card-img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text">Last updated 3 mins ago</p>
-  </div>
-</div>
-        
+    <div class="bg-image" style="background-image: url('/img/wallpaper.jpg'); border: 0; height: 100%;background-size: cover; border:0;">
+        <div class="py-5" style=" background-color: rgba(251, 192, 147, 0.4);">
+            <img class="position-sticky top-50 start-50 translate-middle" width="40%" src="/img/Capture.PNG">
+            <form class=" justify-content-center d-flex h-25 py-2" action='/search=' method="get" onsubmit="this.action += this.querySelector('#query').value;">
+            <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search" id="query">
+            <button class="btn btn-danger">
+                <i class="bi bi-search"></i>
+            </button>
+            </form>
+        </div> 
     </div>
 </template>
 

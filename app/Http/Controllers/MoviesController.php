@@ -14,11 +14,15 @@ class MoviesController extends Controller
      */
     public function index()
     {
+        $discoverMovies = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/upcoming')
+            ->json()['results'];
         $popularMovies = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/popular')
             ->json()['results'];
 
         return view('index',[
+            'discoverMovies' => $discoverMovies,
             'popularMovies' => $popularMovies,
         ]);
     }
@@ -28,9 +32,15 @@ class MoviesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function show($id)
     {
-        //
+        $movie = Http::withToken(config('services.tmdb.token'))
+        ->get('https://api.themoviedb.org/3/movie/'.$id.'?append_to_response=credits,videos,images')
+        ->json();
+
+        return view('layouts.show',[
+            'movie' => $movie,
+        ]);
     }
 
     /**
@@ -39,9 +49,16 @@ class MoviesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function search($query)
     {
-        //
+        $results = Http::withToken(config('services.tmdb.token'))
+        ->get('https://api.themoviedb.org/3/search/movie?query='.$query)
+        ->json()['results'];
+
+
+        return view('layouts.search',[
+            'results' => $results,
+        ]);
     }
 
     /**
@@ -50,10 +67,6 @@ class MoviesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
