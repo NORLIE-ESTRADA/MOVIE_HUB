@@ -38,9 +38,9 @@ class MoviesController extends Controller
         ->get('https://api.themoviedb.org/3/movie/'.$id.'?append_to_response=credits,videos,images')
         ->json();
 
-        return view('layouts.show',[
-            'movie' => $movie,
-        ]);
+        //dump($movie);
+
+        return view('layouts.show')->with('movie', $movie);
     }
 
     /**
@@ -52,13 +52,11 @@ class MoviesController extends Controller
     public function search($query)
     {
         $results = Http::withToken(config('services.tmdb.token'))
-        ->get('https://api.themoviedb.org/3/search/movie?query='.$query)
+        ->get('https://api.themoviedb.org/3/search/movie?query='.$query.'&page=1')
         ->json()['results'];
 
 
-        return view('layouts.search',[
-            'results' => $results,
-        ]);
+        return view('layouts.search')->with('results', $results);
     }
 
     /**
