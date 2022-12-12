@@ -1,10 +1,10 @@
 @extends('layouts.main')
 
+
+
 @section('content')
-    
     <div id="app">
-        <navbar></navbar>
-        <homepage></homepage>
+        <heading></heading>
     </div>
     <div class="container mx-auto pt-4 px-4">
         <div class="popular-movies">
