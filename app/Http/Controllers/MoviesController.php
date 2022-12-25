@@ -38,8 +38,6 @@ class MoviesController extends Controller
         ->get('https://api.themoviedb.org/3/movie/'.$id.'?append_to_response=credits,videos,images')
         ->json();
 
-        //dump($movie);
-
         return view('layouts.show')->with('movie', $movie);
     }
 
@@ -59,44 +57,4 @@ class MoviesController extends Controller
         return view('layouts.search')->with('results', $results);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
