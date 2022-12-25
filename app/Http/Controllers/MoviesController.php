@@ -38,8 +38,6 @@ class MoviesController extends Controller
         ->get('https://api.themoviedb.org/3/movie/'.$id.'?append_to_response=credits,videos,images')
         ->json();
 
-        //dump($movie);
-
         return view('layouts.show')->with('movie', $movie);
     }
 
@@ -52,51 +50,20 @@ class MoviesController extends Controller
     public function search($query)
     {
         $results = Http::withToken(config('services.tmdb.token'))
-        ->get('https://api.themoviedb.org/3/search/movie?query='.$query.'&page=1')
+        ->get('https://api.themoviedb.org/3/search/movie?query='.$query)
         ->json()['results'];
 
 
         return view('layouts.search')->with('results', $results);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function genre($genre)
     {
-        //
+        $movies = Http::withToken(config('services.tmdb.token'))
+        ->get('https://api.themoviedb.org/3/discover/movie?with_genres='.$genre)
+        ->json()['results'];
+
+        return view('layouts.genres')->with('movies', $movies);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
