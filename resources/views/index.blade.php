@@ -3,9 +3,9 @@
 
 
 @section('content')
-    <div id="app">
+
         <heading></heading>
-    </div>
+    
     <div class="container mx-auto pt-4 px-4">
         <div class="popular-movies">
             <h4 class="uppercase text-danger text-center">POPULAR MOVIES</h4>
@@ -24,5 +24,6 @@
                 @endforeach
         </div>
     </div>
-
+</div>
+</div>
 @endsection

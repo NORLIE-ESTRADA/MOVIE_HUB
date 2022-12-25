@@ -42,7 +42,10 @@
             </div>
         </div>
     </nav>    
+    <div id="app">
         @yield('content')
+        <footing></footing>
+    </div>
     
 </body>
 </html>
