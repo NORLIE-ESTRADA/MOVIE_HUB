@@ -57,5 +57,22 @@
     </div>
 </div>
 
+
+    @if (count($recommend) > 0 )
+    <hr>
+    <div class="container mx-auto pt-4 px-4">
+        <div class="movie-recommendations">
+            <h4 class="uppercase text-danger text-center">MOVIE RECOMMENDATIONS</h4>
+            <div class="row row-cols-4 gx-0 gy-4 my-auto">
+                @foreach (array_slice($recommend, 0,12) as $movie)
+                    <x-movie-card :movie='$movie' />
+                @endforeach
+        </div>
+    </div>
+</div>
+    @endif
+
+
+
 @endsection
 
