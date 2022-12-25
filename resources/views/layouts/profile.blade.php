@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>Hi {{ auth()->user()->name }}!</h1>
+    <h1 class="text-center mt-3">Hi {{ auth()->user()->name }}!</h1>
 
     <div class="container mx-auto pt-4 px-4">
         <div class="discover-movies">

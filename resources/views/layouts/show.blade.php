@@ -15,8 +15,20 @@
                 @endforeach
             </div>
             <div class="fs-5 pb-3">{{$movie['overview']}}</div>
+
+            <div class="d-flex">
+                @foreach ($movie['credits']['crew'] as $crew)
+                    @if ($loop->index < 2)
+                    <div class="mx-3 my-3">
+                        <div class="fs-4">{{$crew['name']}}</div>
+                        <div class="fs-5">{{$crew['job']}}</div>
+                    </div>
+                    @endif
+                @endforeach
+
+            </div>
             @if (count($movie['videos']['results']))
-            <button type="button" class="btn btn-danger btn-lg" onclick="location.href='https://youtube.com/watch?v={{$movie['videos']['results'][0]['key']}}'" ><i class="bi bi-play-circle-fill"></i> Watch Trailer</button>
+            <button type="button" class="btn btn-danger btn-lg my-3" onclick="location.href='https://youtube.com/watch?v={{$movie['videos']['results'][0]['key']}}'" ><i class="bi bi-play-circle-fill"></i> Watch Trailer</button>
             @endif
             @if( auth()->check() )
             <form method="POST" action="/bookmark">
@@ -27,9 +39,21 @@
             </form>
             @endif
         </div>
+    </div>
+</div>
+<div class="mt-5 mx-5">
+    <h2>Cast</h2>
+    <div class="d-flex">
+        @foreach ($movie['credits']['cast'] as $cast)
+            @if ($loop->index < 5)
+            <div class="mx-3 my-3">
+                <img src="{{'https://image.tmdb.org/t/p/w300'.$cast['profile_path']}}" width="80%">
+                <div class="fs-4">{{$cast['name']}}</div>
+                <div class="fs-5">{{$cast['character']}}</div>
+            </div>
+            @endif
+        @endforeach
 
-   
-        
     </div>
 </div>
 

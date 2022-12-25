@@ -9,6 +9,7 @@ use App\Http\Controllers\BookmarkController;
 
 Route::get('/', [MoviesController::class, 'index'])->name('movies.index');
 Route::get('/search={query}', [MoviesController::class, 'search'])->name('movies.search');
+Route::get('/genre={genre}', [MoviesController::class, 'genre'])->name('movies.genre');
 Route::get('/movies/{movie}', [MoviesController::class, 'show'])->name('movies.show');
 
 Route::get('/register', [RegistrationController::class, 'create']);
